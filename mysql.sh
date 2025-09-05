@@ -46,7 +46,7 @@ validate $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOG_FILE_NAME
 validate $? "Starting MySQL Server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 -e 'show databases'
+mysql_secure_installation --set-root-pass ExpenseApp@1 -e 'show databases;'
 
 if [ $? -ne 0 ]
 then
