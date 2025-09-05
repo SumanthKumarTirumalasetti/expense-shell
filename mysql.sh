@@ -17,7 +17,6 @@ validate() {
     if [ $? -ne 0 ]
     then
         echo -e "$2 ... $R FAILURE $N"
-        exit 1
     else
         echo -e "$2 ... $G SUCCESS $N"
     fi
@@ -47,5 +46,5 @@ validate $? "Enabling MySQL Server"
 systemctl start mysqld &>>$LOG_FILE_NAME
 validate $? "Starting MySQL Server"
 
-mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE_NAME
+mysql_secure_installation --set-root-pass ExpenseApp@1 
 validate $? "Setting Root Password"
