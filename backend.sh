@@ -50,7 +50,7 @@ validate $? "Enabling nodejs:20"
 dnf install nodejs -y &>>$LOG_FILE_NAME
 validate $? "Installing NodeJS"
 
-id expense
+id expense &>>$LOG_FILE_NAME
 
 if [ $? -ne 0 ]
 then
@@ -61,7 +61,7 @@ else
 fi
 
 mkdir /app &>>$LOG_FILE_NAME
-validate $? "Creating app directory" &>>$LOG_FILE_NAME
+validate $? "Creating app directory"
 
 curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip &>>$LOG_FILE_NAME
 validate $? "Download the application code"
