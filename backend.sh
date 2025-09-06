@@ -17,6 +17,7 @@ validate() {
     if [ $? -ne 0 ]
     then
         echo -e "$2 ... $R FAILURE $N"
+        exit 1
     else
         echo -e "$2 ... $G SUCCESS $N"
     fi
@@ -32,12 +33,13 @@ CHECK_ROOT() {
     fi
 }
 
-echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
-
-CHECK_ROOT
 
 mkdir -p /var/log/expense-logs
 validate $? "Expense-logs directory creation"
+
+echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
+
+CHECK_ROOT
 
 dnf module disable nodejs -y &>>$LOG_FILE_NAME
 validate $? "Disabling existing default nodejs"
