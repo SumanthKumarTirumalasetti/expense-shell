@@ -36,6 +36,7 @@ echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
 CHECK_ROOT
 
+mkdir -p /var/log/expense-logs
 
 dnf module disable nodejs -y &>>$LOG_FILE_NAME
 validate $? "Disabling existing default nodejs"
