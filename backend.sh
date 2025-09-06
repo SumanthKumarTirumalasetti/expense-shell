@@ -68,6 +68,8 @@ validate $? "Download the application code"
 
 cd /app &>>$LOG_FILE_NAME
 
+rm-rf /app/*
+
 unzip /tmp/backend.zip &>>$LOG_FILE_NAME
 validate $? "Extracting backend.zip in app directory"
 
