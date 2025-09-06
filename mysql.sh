@@ -17,6 +17,7 @@ validate() {
     if [ $? -ne 0 ]
     then
         echo -e "$2 ... $R FAILURE $N"
+        exit 1
     else
         echo -e "$2 ... $G SUCCESS $N"
     fi
@@ -31,6 +32,8 @@ CHECK_ROOT() {
         exit 1
     fi
 }
+
+mkdir -p /var/log/expense-logs
 
 echo "Script started executing at: $TIMESTAMP" &>>$LOG_FILE_NAME
 
